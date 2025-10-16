@@ -167,7 +167,7 @@ const ProductCard = ({ product }) => {
             <Button colorScheme="red" mr={3} onClick={() => {handleDeleteProduct(product._id); onClose1();}}>
               Delete
             </Button>
-            <Button variant="ghost" onClick={onClose}>Cancel</Button>
+            <Button variant="ghost" onClick={onClose1}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
