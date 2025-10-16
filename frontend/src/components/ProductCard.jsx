@@ -32,6 +32,7 @@ const ProductCard = ({ product }) => {
   const {deleteProduct, updateProduct} = useProductStore(); // Get the deleteProduct hook from the store
   const toast = useToast();
   const {isOpen, onOpen, onClose} = useDisclosure();
+  const {isOpen1, onOpen1, onClose1} = useDisclosure();
 
   const handleDeleteProduct = async (pid) => {
     const{success,message} = await deleteProduct(pid);
@@ -110,7 +111,7 @@ const ProductCard = ({ product }) => {
 
         <HStack spacing={2}>
           <IconButton icon={<EditIcon />} colorScheme="blue" onClick={onOpen}/>
-          <IconButton icon={<DeleteIcon />} onClick={() => handleDeleteProduct(product._id)} colorScheme="red" />
+          <IconButton icon={<DeleteIcon />} onClick={onOpen1} colorScheme="red" />
         </HStack>
       </Box>
 
@@ -151,6 +152,22 @@ const ProductCard = ({ product }) => {
             <Button variant="ghost" onClick={onClose}>
               Cancel
             </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal isOpen={isOpen1} onClose={onClose1}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Delete Product</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            Are you sure you want to delete {product.name}?
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="red" mr={3} onClick={() => {handleDeleteProduct(product._id); onClose1();}}>
+              Delete
+            </Button>
+            <Button variant="ghost" onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
