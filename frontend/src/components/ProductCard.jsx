@@ -126,7 +126,7 @@ const ProductCard = ({ product }) => {
       </Box>
 
       {/* Update Product Modal */}
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="blackAlpha.300" /> {/* Explicit bg for visibility fallback */}
         <ModalContent>
           <ModalHeader>Update Product</ModalHeader>
@@ -169,7 +169,7 @@ const ProductCard = ({ product }) => {
       </Modal>
 
       {/* Delete Confirmation Modal */}
-      <Modal isOpen={isOpen1} onClose={onClose1}>
+      <Modal isOpen={isOpen1} onClose={onClose1} isCentered>
         <ModalOverlay bg="blackAlpha.300" /> {/* Explicit bg for visibility fallback */}
         <ModalContent>
           <ModalHeader>Delete Product</ModalHeader>
